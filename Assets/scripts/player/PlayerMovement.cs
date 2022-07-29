@@ -28,19 +28,19 @@ namespace Shooter
             public float crouch_speed;
         }
 
-        
+
 
         void Start()
         {
             body = this.GetComponent<Rigidbody>();
             Debug.Log("rb initialised");
-          
+
         }
 
 
         void Update()
         {
-           
+            FindSlopeAngle();
             if (isDead != true)
             {
                 Motion();
@@ -55,21 +55,21 @@ namespace Shooter
         }
         private void FixedUpdate()
         {
-            
+
             body.AddForce(move * mb.speed * Time.deltaTime * 30f, ForceMode.Acceleration);
         }
-       
+
         #region public variables
         public void FindSlopeAngle()
         {
             RaycastHit ray;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ray ,this.GetComponent<CapsuleCollider>().height / 2f + 0.1f))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out ray, this.GetComponent<CapsuleCollider>().height / 2f + 0.1f))
             {
-                angle = Mathf.Atan2(transform.position.x, ray.transform.position.x) * Mathf.Rad2Deg;
+                angle = (Mathf.Atan2(transform.position.x, ray.transform.position.x) * Mathf.Rad2Deg)-90f;
 
-                Debug.Log(angle);
+                
             }
-            
+
         }
         public bool isMoveing()
         {
@@ -101,10 +101,9 @@ namespace Shooter
             HashCode = this.GetType().GetHashCode();
         }
 
-        public virtual void LocalFixedUpdare
+        public virtual void LocalFixedUpdare()
         {
 
         }
     }
 }
-
