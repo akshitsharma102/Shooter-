@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &561330479 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2077132465099664680, guid: 0f90e9a47c04cfc4db5cfb6b2c7d1d0f, type: 3}
-  m_PrefabInstance: {fileID: 2077132465621128199}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &666019054
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,36 +547,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2019607321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2019607322}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2019607322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019607321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 561330479}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2077132465621128199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,6 +554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2019607321, guid: 0f90e9a47c04cfc4db5cfb6b2c7d1d0f, type: 3}
+      propertyPath: m_Name
+      value: GroundCheck
+      objectReference: {fileID: 0}
     - target: {fileID: 2077132465099664680, guid: 0f90e9a47c04cfc4db5cfb6b2c7d1d0f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -637,10 +606,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2077132465099664694, guid: 0f90e9a47c04cfc4db5cfb6b2c7d1d0f, type: 3}
-      propertyPath: mb.speed
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2077132465099664695, guid: 0f90e9a47c04cfc4db5cfb6b2c7d1d0f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f90e9a47c04cfc4db5cfb6b2c7d1d0f, type: 3}

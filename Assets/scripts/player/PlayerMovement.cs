@@ -1,10 +1,74 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Shooter
 {
-    public class PlayerMovement : MonoBehaviour, IInteractables
+    public class PlayerMovement : MonoBehaviour
     {
-        private Rigidbody body;
+
+
+        [SerializeField]
+        private Rigidbody rb;
+        [SerializeField]
+        private Transform groundCheck, cealingCheck;
+
+        private float h;
+        private float v;
+        private Vector3 move;
+
+
+        private List<PlayerGeneric> Behaviours;
+        private List<PlayerGeneric> OverridingBehaviours;
+
+        private int DefaultBehaviours;
+        private int ActiveBehaviour;
+        private int BehaviourLocked;
+
+        private void Awake()
+        {
+            Behaviours = new List<PlayerGeneric>();
+            OverridingBehaviours = new List<PlayerGeneric>();
+        }
+
+        public void SubscribeBehaviour(PlayerGeneric behaviour)
+        {
+            Behaviours.Add(behaviour);
+        }
+
+        public void InitialiseDefaultBehaviours(int behaviourCode)
+        {
+            DefaultBehaviours = behaviourCode;
+            ActiveBehaviour = behaviourCode;
+        }
+
+
+    }
+
+    public abstract class PlayerGeneric : MonoBehaviour
+    {
+        protected PlayerMovement Manager;
+        protected int HashCode;
+
+        private void Awake()
+        {
+            Manager = this.GetComponent<PlayerMovement>();
+
+            HashCode = GetType().GetHashCode();
+        }
+
+        public virtual void LocalFixedUpdate() { }
+        
+        public virtual void LocalLateUpdate() { }
+       
+        public virtual void OnOverride() { }
+
+        public int GetBehaviourCode()
+        {
+            return HashCode;
+        }
+    }
+}
+/*private Rigidbody body;
         public MovementRelatedVariables mb = new MovementRelatedVariables();
 
         [HideInInspector]
@@ -88,22 +152,4 @@ namespace Shooter
         public void Interact()
         {
 
-        }
-    }
-
-    public abstract class PlayerGeneric : MonoBehaviour
-    {
-        protected PlayerMovement playerManager;
-        protected int HashCode;
-        private void Awake()
-        {
-            playerManager = GetComponent<PlayerMovement>();
-            HashCode = this.GetType().GetHashCode();
-        }
-
-        public virtual void LocalFixedUpdare()
-        {
-
-        }
-    }
-}
+        }*/
