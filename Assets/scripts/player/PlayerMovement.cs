@@ -27,7 +27,7 @@ namespace Shooter
         private void Awake()
         {
             Behaviours = new List<PlayerGeneric>();
-            OverridingBehaviours = new List<PlayerGeneric>();
+            OverridingBehaviours = new List<PlayerGeneric>()
         }
 
         public void SubscribeBehaviour(PlayerGeneric behaviour)
